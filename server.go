@@ -2,6 +2,7 @@ package main
 
 import (
 	"database/sql"
+	"encoding/json"
 	"fmt"
 	"log"
 	"net/http"
@@ -37,4 +38,16 @@ func (s *Server) InitializeRoutes() {
 	s.Router.HandleFunc("/api/v1/items/all", s.allItems).Methods("GET")
 	s.Router.HandleFunc("/api/v1/items/{id:[0-9]+}", s.getItemByID).Methods("GET")
 	s.Router.HandleFunc("/api/v1/items/new", s.newEntry).Methods("POST")
+}
+
+func respondWithError(w http.ResponseWriter, code int, message string) {
+	respondWithJSON(w, code, map[string]string{"ERROR!": message})
+}
+
+func respondWithJSON(w http.ResponseWriter, code int, payload interface{}) {
+	response, _ := json.Marshal(payload)
+
+	w.Header().Set("Content-Type", "application/json")
+	w.WriteHeader(code)
+	w.Write(response)
 }
