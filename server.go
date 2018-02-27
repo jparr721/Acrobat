@@ -31,7 +31,7 @@ func (s *Server) Initialize(user, password, dbname string) {
 }
 
 func (s *Server) Run(addr string) {
-	log.Fatal(http.ListenAndServe(":80", s.Router))
+	log.Fatal(http.ListenAndServe(addr, s.Router))
 }
 
 func (s *Server) InitializeRoutes() {
