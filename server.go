@@ -51,3 +51,37 @@ func respondWithJSON(w http.ResponseWriter, code int, payload interface{}) {
 	w.WriteHeader(code)
 	w.Write(response)
 }
+
+func (s *Server) resetInstance() error {
+	_, err := s.DB.Query(`
+		DROP TABLE
+			items
+		CREATE TABLE
+			items(
+				name text not null,
+				food_type text,
+				store text not null,
+				date_added timestamp not null,
+				date_modified timestamp default current_timestamp)`)
+
+	if err != nil {
+		return err
+	}
+	return nil
+}
+
+func (s *Server) newInstance() error {
+	_, err := s.DB.Query(`
+		CREATE TABLE
+			items(
+				name text not null,
+				food_type text,
+				store text not null,
+				date_added timestamp not null,
+				date_modified timestamp default current_timestamp)`)
+	if err != nil {
+		return err
+	}
+
+	return nil
+}
