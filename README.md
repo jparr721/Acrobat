@@ -6,6 +6,8 @@
 * Go version >= 1.9
 
 ### Running
-To run, simply compile with `go build`, then run one of the following
+To run, simply compile with `go build`, then run one of the following:
+
 `./Stor -n` to generate your new database tables
+
 `./Stor --reset` to drop and remake your tables for you
