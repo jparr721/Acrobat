@@ -16,7 +16,7 @@ type Server struct {
 }
 
 func (s *Server) Initialize(user, password, dbname string) {
-	connectionString := fmt.Sprintf("user=%s passwod=%s dbname=%s", user, password, dbname)
+	connectionString := fmt.Sprintf("user=%s password=%s dbname=%s", user, password, dbname)
 
 	var err error
 	s.DB, err = sql.Open("postgres", connectionString)
