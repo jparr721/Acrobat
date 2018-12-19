@@ -165,7 +165,8 @@ def main():
         SCHEMA_SQL = args.schema
 
     if args.cmd is None:
-        return cmd_analyze(args)
+        print('No option specified, use --help if you\'re stuck!')
+        return False
 
     return args.cmd(args)
 
