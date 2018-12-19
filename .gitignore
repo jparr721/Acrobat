@@ -3,3 +3,4 @@ sql/*.sql
 venv/
 .DS_Store
 *.pyc
+.vscode/
