@@ -1,3 +1,6 @@
-sql/
+sql/*.sql
 .con
 venv/
+.DS_Store
+*.pyc
+.vscode/
