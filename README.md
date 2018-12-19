@@ -34,4 +34,11 @@ You can change any of these files with the options listed above.
 * pip3
 
 ### Running
+```
+cd /path/to/acrobat/
+virtualenv -p `which python3` venv
+source venv/bin/activate
+pip install -r requirements.txt
+
+```
 `./acrobat [options]`
