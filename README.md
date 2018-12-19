@@ -22,6 +22,13 @@ optional arguments:
 
 
 ## Usage
+### How it works
+Make a SQL directory, put SQL in it, watch it run. This tool makes the following assumptions:
+- Make tables with `make_tables.sql`
+- Drop tables with `drop_tables.sql`
+- Make the custom schema (because you wouldn't speed test in prod, right?) with `make_schema.sql`
+
+You can change any of these files with the options listed above.
 ### Requirements
 * Python version 3.6+
 * pip3
