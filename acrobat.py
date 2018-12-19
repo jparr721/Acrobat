@@ -6,9 +6,7 @@ import sys
 import itertools
 from pathlib import Path
 import timeit
-import logging
 import psycopg2
-from logging.handlers import SysLogHandler
 from multiprocessing import Process, Manager
 import time
 
@@ -173,4 +171,3 @@ def main():
 
 if __name__ == '__main__':
     sys.exit(0 if main() else 1)
-
